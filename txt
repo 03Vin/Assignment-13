@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    std::string name, age;
+
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, name);
+    std::cout << "Enter your age: ";
+    std::getline(std::cin, age);
+
+    std::ofstream file("details.txt");
+    file << "Name: " << name << std::endl;
+    file << "Age: " << age << std::endl;
+    file.close();
+
+    std::ifstream readFile("details.txt");
+    std::string line;
+    while (std::getline(readFile, line)) {
+        std::cout << line << std::endl;
+    }
+    readFile.close();
+
+    return 0;
+}
